@@ -4,28 +4,32 @@ import { getItems } from '../util/get-items';
 import { useInfiniteLoading } from '../hooks/useInfiniteLoading';
 
 const PLP = () => {
-  const { items, hasNext, hasPrevious, loadNext, loadPrevious, loadMoreRef } = useInfiniteLoading({ getItems, options: { loadingType: 'infinite', preload: 'safe' } });
+  const { items, hasNext, hasPrevious, loadNext, loadPrevious, loadMoreRef } = useInfiniteLoading({ getItems, options: { loadingType: 'partial', preload: 'safe', partialInfiniteLimit: 3 } });
 
-  if (items.length === 0) {
-    return <div>Loading...</div>
-  }
+  const placeholderProducts = React.useMemo(() => {
+    return Array.from(new Array(12)).map((ingored, index) => (
+      <li key={index}> {/* <------ */}
+        <ProductCard isSkeleton={true}/>
+      </li>
+    ));
+  }, [])
 
   return (
     <React.Fragment>
       {hasPrevious && (
-        <button className="btn--load-more" type="button" onClick={() => loadPrevious()}>Load Previous</button>
+        <button className="btn--load" type="button" onClick={() => loadPrevious()}>Load Previous</button>
       )}
       <ul className="products">
-        {items.map((product) => (
-          <li key={product.id}>
-            <ProductCard
-              product={product}
-            />
-          </li>
-        ))}
+        {items.length === 0 ? placeholderProducts : items.map((product) => (
+            <li key={product.id}>
+              <ProductCard
+                product={product}
+              />
+            </li>
+          ))}
       </ul>
       {hasNext && (
-        <button ref={loadMoreRef} className="btn--load-more" type="button" onClick={() => loadNext()}>Load Next</button>
+        <button ref={loadMoreRef} className="btn--load" type="button" onClick={() => loadNext()}>Load Next</button>
       )}
     </React.Fragment>
   );
