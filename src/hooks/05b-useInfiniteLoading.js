@@ -82,6 +82,7 @@ export const useInfiniteLoading = (props) => {
   }
 
   const { observe } = useInView({
+    rootMargin: '500px',
     onEnter: () => {
       loadNext();
     },

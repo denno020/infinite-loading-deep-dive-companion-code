@@ -135,6 +135,7 @@ export const useInfiniteLoading = (props) => {
   }, [loadItems])
 
   const { observe } = useInView({
+    rootMargin: '500px',
     onEnter: () => {
       remainingPagesToAutoload.current = remainingPagesToAutoload.current - 1
 
