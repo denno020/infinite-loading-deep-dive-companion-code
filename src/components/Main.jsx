@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import PDP from "./PDP";
-import PLP from "./01-PLP";
+import PLP from "./PLP"
 
 const Main = () => (
   <main>
