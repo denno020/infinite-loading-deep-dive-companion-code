@@ -28,7 +28,7 @@ const PLP = () => {
       )}
       
       {hasMore && (
-        <button className="btn--load-more" type="button" onClick={() => loadItems()}>Load Next</button>
+        <button className="btn--load" type="button" onClick={() => loadItems()}>Load Next</button>
       )}
     </React.Fragment>
   );

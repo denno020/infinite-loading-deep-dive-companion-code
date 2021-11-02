@@ -14,7 +14,7 @@ const PLP = () => {
   return (
     <React.Fragment>
       {hasPrevious && 
-        <button onClick={() => loadPrevious()}>Load Previous</button>
+        <button className="btn--load" onClick={() => loadPrevious()}>Load Previous</button>
       }
 
       {items.length === 0 ? (
@@ -32,7 +32,7 @@ const PLP = () => {
       )}
       
       {hasNext && (
-        <button ref={loadMoreRef} className="btn--load-more" type="button" onClick={() => loadNext()}>Load Next</button>
+        <button ref={loadMoreRef} className="btn--load" type="button" onClick={() => loadNext()}>Load Next</button>
       )}
     </React.Fragment>
   );
