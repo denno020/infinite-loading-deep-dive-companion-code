@@ -6,6 +6,10 @@ import { useInfiniteLoading } from '../hooks/01-useInfiniteLoading';
 const PLP = () => {
   const { items, hasMore, loadItems } = useInfiniteLoading({ getItems });
 
+  React.useEffect(() => {
+    document.title = '01 PLP'
+  }, [])
+
   if (items.length === 0) {
     return <div>Loading...</div>
   }

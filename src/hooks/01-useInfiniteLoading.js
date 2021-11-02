@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 export const useInfiniteLoading = (props) => {
   const { getItems } = props;
   const [items, setItems] = useState([]);
-  const pageToLoad = useRef(new URLSearchParams(window.location.search).get('page') || 1);
+  const pageToLoad = useRef(1);
   const initialPageLoaded = useRef(false);
   const [hasMore, setHasMore] = useState(true);
 
@@ -27,7 +27,6 @@ export const useInfiniteLoading = (props) => {
 
     loadItems();
     initialPageLoaded.current = true;
-    pageToLoad.current = pageToLoad.current + 1;
   }, [loadItems])
 
   return {
