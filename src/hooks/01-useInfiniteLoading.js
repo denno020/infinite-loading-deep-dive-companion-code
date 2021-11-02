@@ -14,9 +14,9 @@ export const useInfiniteLoading = (props) => {
     const data = await getItems({
       page: pageToLoad.current
     });
-    pageToLoad.current = pageToLoad.current + 1
-
     setHasMore(data.totalPages > pageToLoad.current);
+
+    pageToLoad.current = pageToLoad.current + 1
     setItems(prevItems => [...prevItems, ...data.items]);
   };
 

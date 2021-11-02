@@ -8,7 +8,7 @@ export const useInfiniteLoading = (props) => {
   const { getItems } = props;
   const history = useHistory();
   const [items, setItems] = useState([]);
-  const initialPage = useRef(Number(new URLSearchParams(window.location.search).get('page')) || 1); // <----
+  const initialPage = useRef(Number(new URLSearchParams(window.location.search).get('page')) || 1); 
   const initialPageLoaded = useRef(false);
   const [hasNext, setHasNext] = useState(true);
   const [hasPrevious, setHasPrevious] = useState(() => initialPage.current !== 1);

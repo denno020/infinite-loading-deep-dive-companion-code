@@ -9,15 +9,15 @@ export const useInfiniteLoading = (props) => {
   const [items, setItems] = useState([]);
   const pageToLoad = useRef(Number(new URLSearchParams(window.location.search).get('page')) || 1);
   const initialPageLoaded = useRef(false);
-  const [hasNext, setHasNext] = useState(true);
-  const [hasPrevious, setHasPrevious] = useState(() => pageToLoad.current !== 1);
+  const [hasNext, setHasNext] = useState(true); // <----
+  const [hasPrevious, setHasPrevious] = useState(() => pageToLoad.current !== 1); // <----
   const history = useHistory();
 
   const loadItems = async (page, itemCombineMethod) => {
     const data = await getItems({ page });
-    setHasNext(data.totalPages > page);
-    setHasPrevious(page > 1);
-    setItems(prevItems => {
+    setHasNext(data.totalPages > page); // <----
+    setHasPrevious(page > 1); // <----
+    setItems(prevItems => {  // <----
       return itemCombineMethod === 'prepend' ?
         [...data.items, ...prevItems] :
         [...prevItems, ...data.items]
