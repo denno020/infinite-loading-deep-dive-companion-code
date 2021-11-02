@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ProductCard = (props) => {
-  const { product, onSelect = () => {}, restorationRef } = props;
-  const { id, name, price, image, pageNo } = product;
+  const { product, onSelect = () => {}, restorationRef, isSkeleton } = props;
+  const { id, name = 'Placeholder name', price = '10.00', image, pageNo } = product || {};
 
   React.useEffect(() => {
     // restorationRef is only provided to the ProductCard that needs to be scrolled to
@@ -17,7 +17,7 @@ const ProductCard = (props) => {
   })
 
   return (
-    <div className="product-card" ref={restorationRef}>
+    <div className={`product-card ${isSkeleton ? 'product-card--skeleton' : ''}`} ref={restorationRef}>
       <div className="product-card__image-container">
         <Link to="/pdp" onClick={() => onSelect(id, pageNo)}>
           <img className="product-card__image" src={image} alt={name} />

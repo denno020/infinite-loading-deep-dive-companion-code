@@ -60,15 +60,37 @@ button {
   overflow: hidden;
 }
 
+.product-card--skeleton .product-card__image-container {
+  width: 240px;
+  background-color: purple;
+}
+
+.product-card--skeleton .product-card__image-container img {
+  opacity: 0;
+}
+
 .product-card__name {
   font-size: 1.3em;
   line-height: 1.5;
   white-space: nowrap;
 }
 
+.product-card--skeleton .product-card__name {
+  background-color: purple;
+}
+
+.product-card--skeleton .product-card__name a {
+  color: transparent;
+}
+
 .product-card__price {
   font-size: 1.2em;
   line-height: 1.5;
+}
+
+.product-card--skeleton .product-card__price {
+  color: transparent;
+  background-color: purple;
 }
 
 .product-card__action--add {
@@ -77,6 +99,11 @@ button {
   color: white;
   padding: 10px 20px;
   font-size: 1.3em;
+}
+
+.product-card--skeleton .product-card__action--add {
+  color: transparent;
+  background-color: purple;
 }
 
 .product-card__configurations {
@@ -91,6 +118,11 @@ button {
   justify-content: center;
   align-items: center;
   border: 1px solid black;
+}
+
+.product-card--skeleton .product-card__configuration {
+  background-color: purple;
+  color: transparent;
 }
 
 .configuration--red {
