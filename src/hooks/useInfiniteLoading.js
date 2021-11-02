@@ -127,12 +127,13 @@ export const useInfiniteLoading = (props) => {
 
   const { observe, unobserve } = useInView({
     onEnter: () => {
+      remainingPagesToAutoload.current = remainingPagesToAutoload.current - 1
+
       if (remainingPagesToAutoload.current === 0) {
         unobserve();
         return;
       }
 
-      remainingPagesToAutoload.current = remainingPagesToAutoload.current - 1
       if (isInFlight.current) {
         triggerNext.current = true;
       } else {
