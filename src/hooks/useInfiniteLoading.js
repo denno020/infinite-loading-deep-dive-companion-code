@@ -129,8 +129,8 @@ export const useInfiniteLoading = (props) => {
     onEnter: () => {
       remainingPagesToAutoload.current = remainingPagesToAutoload.current - 1
 
-      if (remainingPagesToAutoload.current === 0) {
-        unobserve();
+      if (remainingPagesToAutoload.current === 0 || loadingType === 'manual') {
+        // unobserve();
         return;
       }
 
