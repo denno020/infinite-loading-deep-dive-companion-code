@@ -11,16 +11,16 @@ const PLP = () => {
     document.title = '02 PLP'
   }, [])
 
-  if (items.length === 0) {
-    return <div>Loading...</div>
-  }
-
   return (
     <React.Fragment>
       {hasPrevious && 
         <button onClick={() => loadPrevious()}>Load Previous</button>
       }
-      <ul className="products">
+      
+      {items.length === 0 ? (
+        <div>Loading...</div>
+      ) : (
+        <ul className="products">
         {items.map((product) => (
           <li key={product.id}>
             <ProductCard
@@ -29,6 +29,8 @@ const PLP = () => {
           </li>
         ))}
       </ul>
+      )}
+      
       {hasNext && (
         <button className="btn--load-more" type="button" onClick={() => loadNext()}>Load Next</button>
       )}
