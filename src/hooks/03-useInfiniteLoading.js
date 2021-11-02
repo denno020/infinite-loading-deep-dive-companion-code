@@ -46,7 +46,7 @@ export const useInfiniteLoading = (props) => {
       return;
     }
 
-    loadItems(initialPage.current, 'append');  // <----
+    loadItems(initialPage.current, 'append');
     initialPageLoaded.current = true;
   }, [loadItems, items])
 
