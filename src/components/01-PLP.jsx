@@ -17,14 +17,14 @@ const PLP = () => {
         <div>Loading...</div>
       ) : (
         <ul className="products">
-        {items.map((product) => (
-          <li key={product.id}>
-            <ProductCard
-              product={product}
-            />
-          </li>
-        ))}
-      </ul>
+          {items.map((product) => (
+            <li key={product.id}>
+              <ProductCard
+                product={product}
+              />
+            </li>
+          ))}
+        </ul>
       )}
       
       {hasMore && (
