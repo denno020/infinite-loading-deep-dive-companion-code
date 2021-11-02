@@ -2,13 +2,14 @@ import React from "react";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
+import AppContextProvider from "../contexts/AppContext";
 
 const App = () => (
-  <div>
+  <AppContextProvider>
     <Header />
     <Main />
     <Footer />
-  </div>
+  </AppContextProvider>
 );
 
 export default App;
